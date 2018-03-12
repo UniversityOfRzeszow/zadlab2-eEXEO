@@ -22,6 +22,8 @@ public class Main
                     arr[i] = imp.nextDouble(); 
                 }
                 
+                while(true)
+                {
                 
                 System.out.println("1) Wyświetlanie tablicy od pierwszego do ostatniego indeksu.\n" +
                                    "2) Wyświetlanie tablicy od ostatniego do pierwszego indeksu.\n" +
@@ -33,19 +35,19 @@ public class Main
                 if(sel==1)
                 {
                     for(int i = 0;i<10;i++)
-                {
-                    System.out.println("Indeks nr. "+i+" = "+arr[i]); 
-                }
+                    {
+                        System.out.println("Indeks nr. "+i+" = "+arr[i]); 
+                    }
                 }else if(sel==2)
                 {
-                    for(int i = 9;i>=0;i++)
-                {
-                    System.out.println("Indeks nr. "+i+" = "+arr[i]); 
-                }
+                    for(int i = 9;i>=0;i--)
+                    {
+                        System.out.println("Indeks nr. "+i+" = "+arr[i]); 
+                    }
                 }else if(sel==3)
                 {
                     for(int i = 0;i<10;i++)
-                {
+                  {
                      if((i%2)!=0)
                      {
                          System.out.println("Indeks nr. "+i+" = "+arr[i]); 
@@ -64,7 +66,7 @@ public class Main
                 {
                     System.out.println("Niepoprawna wartosc");
                 }
-                
+                }
                 /*Napisz program umożliwiający wprowadzanie 10-ciu liczb rzeczywistych do tablicy. Następnie utwórz następujące funkcjonalności używając pętli `for`:
    
                 * Wyświetlanie tablicy od pierwszego do ostatniego indeksu.
@@ -73,7 +75,6 @@ public class Main
                 * Wyświetlanie elementów o parzystych indeksach.
 
                 Wyniki działania algorytmów wyświetlaj na konsoli. Dla wyboru powyższych funkcjonalności programu utwórz odpowiednie menu. Do obsługi menu użyć rozbudowanej konstrukcji `else-if` oraz pętli `do-while`.*/
-                break;
             case 4:
                 
                 double[] arx = new double[10];
@@ -116,19 +117,19 @@ public class Main
                 {
                     case 1:
                         System.out.println("Suma elementów to: "+sm);
-                        //break;
+                        break;
                     case 2:
                         System.out.println("Iloczyn elementów to: "+il);
-                        //break;
+                        break;
                     case 3:
                         System.out.println("Srednia elementów to: "+med);
-                        //break;
+                        break;
                     case 4:
                         System.out.println("Minimalna z elementów to: "+min);
-                        //break;
+                        break;
                     case 5:
                         System.out.println("Maksymalna z elementów to: "+max);
-                        //break;
+                        break;
                 }
                 /*Napisz program umożliwiający wprowadzanie 10-ciu liczb. Dla wprowadzonych liczb wykonaj odpowiednie algorytmy:
 
@@ -139,7 +140,6 @@ public class Main
                 * wyznacz wartość maksymalną.
 
                 Wyniki działania algorytmów wyświetlaj na konsoli. Utwórz odpowiednie menu. */
-                break;
             case 6:
                 int xy;
                 for(;;)
@@ -157,15 +157,32 @@ public class Main
 
                 System.out.println("Ilosc liczb w tablicy:");
                 int quantity = imp.nextInt();
+                int temp = 0;
+                int ch = 1;
                 
                 int[] arc = new int[quantity];
 
-                for(int i =0;i<quantity;i++)
+                for(int i = 0; i<quantity; i++)
                 {
-                System.out.println("Wprowadz liczbe nr. " + (i+1));
-                int digit = imp.nextInt();
+                    System.out.println("Wprowadz liczbe nr. " + (i+1));
+                    int digit = imp.nextInt();
+                    arc[i] = digit;
                 }
                 
+                while(ch > 0)
+                {
+                    ch = 0;
+                    for(int i=0; i<(quantity-1); i++)
+                    {
+                        if(arc[i]>arc[i+1])
+                        {
+                            temp = arc[i+1];
+                            arc[i+1] = arc[i];
+                            arc[i] = temp;
+                            ch++;
+                        }
+                    }
+                }
                 
                 for(int i = 0;i<quantity;i++)
                 {
